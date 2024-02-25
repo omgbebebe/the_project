@@ -10,12 +10,9 @@
 in {
   kapitan = std.lib.ops.mkOperable {
     inherit package;
+    inherit (package) meta;
     runtimeScript = ''
       exec ${package}/bin/kapitan "$@"
     '';
-
-    meta = {
-#      mainProgram = "vector";
-    };
   };
 }

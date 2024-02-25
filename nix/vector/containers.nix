@@ -10,5 +10,6 @@
 in {
   vector = std.lib.ops.mkStandardOCI {
     inherit name operable;
+    inherit (operable) meta;
   };
 }
