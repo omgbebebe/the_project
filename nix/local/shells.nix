@@ -26,7 +26,7 @@ in
 
         ] ++ (
           map (p: { category = "tools"; package = p; }) (with inputs.nixpkgs; [
-            bat jq yq ripgrep fd
+            bat jq yq ripgrep fd entr expect
             tcpdump dig nettools procps
             tmux
             neovim
@@ -34,11 +34,6 @@ in
             lua python311
           ])
         )
-        ++ optionals nixpkgs.stdenv.isLinux [
-          {
-            package = nixpkgs.golangci-lint;
-            category = "cli-dev";
-          }
-        ];
+        ++ optionals nixpkgs.stdenv.isLinux [ ];
     };
   }
