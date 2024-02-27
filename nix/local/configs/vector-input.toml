@@ -1,0 +1,30 @@
+acknowledgements.enables = false
+
+[sources.tmux-pane-pipe-hex]
+type = "stdin"
+decoding.codec = "bytes"
+
+[transforms.tmux-pane-pipe-char]
+type = "lua"
+version = "2"
+inputs = [ "tmux-pane-pipe-hex" ]
+hooks.process = """
+function (event, emit)
+  event.log.message = string.format("%c", tonumber(event.log.message, 16))
+  emit(event)
+end
+"""
+
+[transforms.metadata]
+type = "remap"
+inputs = [ "tmux-pane-pipe-char" ]
+source = """
+.source = "tmux-pane-pipe"
+.uuid = "${UUID}"
+"""
+
+[sinks.vector3]
+type = "vector"
+inputs = [ "metadata" ]
+address = "127.0.0.1:40003"
+version = "2"
