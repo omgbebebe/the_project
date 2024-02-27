@@ -7,6 +7,7 @@
         (installables "packages")
         (runnables "apps")
         (containers "containers")
+        (data "configs")
         (devshells "shells" {ci.build = true;})
       ];
     } {

@@ -1,3 +1,4 @@
 result/
 .cache/
 .direnv/
+.data/

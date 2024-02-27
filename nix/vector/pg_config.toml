@@ -1,0 +1,11 @@
+[sources.socket]
+type = "socket"
+address = "0.0.0.0:9000"
+mode = "udp"
+decoding.codec = "json"
+
+[sinks.debug]
+type = "console"
+inputs = [ "socket" ]
+encoding.codec = "json"
+
