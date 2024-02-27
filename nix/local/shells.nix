@@ -17,7 +17,8 @@ in
           { category = "services"; package = inputs.cells.vector.packages.vector; }
           { category = "services"; package = inputs.cells.nats.packages.nats; }
 
-          { category = "operables"; package = inputs.cells.vector.apps.vector; }
+          { category = "operables"; package = cell.apps.vector-input; }
+          { category = "operables"; package = cell.apps.vector-output; }
           { category = "operables"; package = inputs.cells.nats.apps.nats; }
 
           { category = "cli-dev"; package = inputs.cells.kapitan.packages.kapitan; }
