@@ -10,7 +10,7 @@ let
   l = nixpkgs.lib // builtins;
 in
 {
-  nats-server = nixpkgs.nats-server;
+  nats = nixpkgs.nats-server;
 /*
   # We can think of this attribute set as what would normally be contained under
   # `outputs.packages` in our flake.nix. In this case, we're defining a default

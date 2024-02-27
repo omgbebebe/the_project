@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs std;
 
   l = nixpkgs.lib // builtins;
-  package = nixpkgs.vector;
+  package = cell.packages.vector;
 
 in {
   vector = std.lib.ops.mkOperable {
