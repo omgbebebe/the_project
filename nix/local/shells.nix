@@ -28,7 +28,7 @@ in
           map (p: { category = "tools"; package = p; }) (with inputs.nixpkgs; [
             bat jq yq ripgrep fd entr expect
             tcpdump dig nettools procps
-            tmux
+            tmux tab-rs
             neovim
             neofetch
             lua python311
