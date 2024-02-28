@@ -26,4 +26,10 @@ in {
       description = "A vector instance to parse a std{out,err} from programms";
     };
   };
+  tmuxinator-infra-minimal = inputs.std.lib.ops.mkOperable rec {
+    package = inputs.nixpkgs.tmuxinator.overrideAttrs (f: p: { pname = p.pname + "-infra-minimal";});;
+    runtimeScript = ''
+      ${package}/bin/tmuxinator start -p ./nix/local/configs/tmuxinator-infra-minimal.yml
+    '';
+  };
 }

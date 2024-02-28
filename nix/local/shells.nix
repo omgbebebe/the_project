@@ -21,6 +21,8 @@ in
           { category = "operables"; package = cell.apps.vector-output; }
           { category = "operables"; package = inputs.cells.nats.apps.nats; }
 
+          { category = "interactive sessions"; package = cell.apps.tmuxinator-infra-minimal; }
+
           { category = "cli-dev"; package = inputs.cells.kapitan.packages.kapitan; }
 #          { category = "cli-dev"; package = inputs.std.packages.x86_64-linux.std; }
 

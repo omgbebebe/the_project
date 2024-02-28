@@ -1,5 +1,8 @@
 acknowledgements.enables = false
 
+[sources.self-logs]
+type = "internal_logs"
+
 [sources.tmux-pane-pipe-hex]
 type = "stdin"
 decoding.codec = "bytes"
