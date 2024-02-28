@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "termlines"
+version = "0.1.0"
+description = "Get stream of raw terminal output from NATS and convert it to plain text line-by-line"
+authors = ["Omg Bebebe <omgbebebe@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyte = "^0.8.2"
+nats-py = "^2.7.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
