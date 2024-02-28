@@ -34,6 +34,7 @@ in
             neovim
             neofetch
             lua python311
+            dhall dhall-json jsonnet tanka
           ])
         )
         ++ optionals nixpkgs.stdenv.isLinux [ ];
