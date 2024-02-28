@@ -1,7 +1,7 @@
 # /home/user/.config/tmuxinator/infra-minimal.yml
 
 name: infra-minimal
-root: ~/work/dev/the_project
+root: ./
 
 # Optional tmux socket
 # socket_name: foo

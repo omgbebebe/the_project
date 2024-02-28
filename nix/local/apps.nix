@@ -27,7 +27,7 @@ in {
     };
   };
   tmuxinator-infra-minimal = inputs.std.lib.ops.mkOperable rec {
-    package = inputs.nixpkgs.tmuxinator.overrideAttrs (f: p: { pname = p.pname + "-infra-minimal";});;
+    package = inputs.nixpkgs.tmuxinator.overrideAttrs (f: p: { name = p.name + "-infra-minimal";});
     runtimeScript = ''
       ${package}/bin/tmuxinator start -p ./nix/local/configs/tmuxinator-infra-minimal.yml
     '';
