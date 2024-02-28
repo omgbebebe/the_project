@@ -5,6 +5,7 @@
 let
   packages = {
     vector = inputs.nixpkgs.vector;
+    tmuxinator = inputs.nixpkgs.tmuxinator;
   };
 in {
   vector-input = inputs.std.lib.ops.mkOperable {
@@ -26,10 +27,11 @@ in {
       description = "A vector instance to parse a std{out,err} from programms";
     };
   };
-  tmuxinator-infra-minimal = inputs.std.lib.ops.mkOperable rec {
-    package = inputs.nixpkgs.tmuxinator.overrideAttrs (f: p: { name = p.name + "-infra-minimal";});
+  tmuxinator-infra-minimal = inputs.std.lib.ops.mkOperable {
+    package = packages.tmuxinator.overrideAttrs (f: p: { name = p.name + "-infra-minimal";});
     runtimeScript = ''
-      ${package}/bin/tmuxinator start -p ./nix/local/configs/tmuxinator-infra-minimal.yml
+      ${packages.tmuxinator}/bin/tmuxinator start -p ./nix/local/configs/tmuxinator-infra-minimal.yml
     '';
+    meta.description = "Launch a minimal infra service set";
   };
 }
