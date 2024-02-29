@@ -11,7 +11,7 @@ in
   mapAttrs (_: mkShell) rec {
     default = {...}: {
       name = "MindWM";
-#      imports = [ std.devshellProfiles.default ];
+      imports = [ std.devshellProfiles.default ];
       commands =
         [
           { category = "services"; package = inputs.cells.vector.packages.vector; }
@@ -33,7 +33,8 @@ in
             tmux tmuxinator tab-rs
             neovim
             neofetch
-            lua python311
+            lua
+            python311 poetry
             dhall dhall-json jsonnet tanka
           ])
         )
