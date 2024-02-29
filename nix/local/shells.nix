@@ -34,7 +34,10 @@ in
             neovim
             neofetch
             lua
-            python311 poetry
+            (python311.withPackages (ps: with ps; [
+              nats-py pyte
+            ]))
+            poetry
             dhall dhall-json jsonnet tanka
           ])
         )
