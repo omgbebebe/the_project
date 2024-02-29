@@ -3,7 +3,7 @@
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     poetry2nix = {
       url = "github:nix-community/poetry2nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +19,20 @@
       in
       {
         packages = {
-          myapp = mkPoetryApplication { projectDir = self; };
+          myapp = mkPoetryApplication {
+            projectDir = self;
+#overrides = [ poetry2nix.defaultPoetryOverrides
+            overrides = poetry2nix.overrides.withDefaults (self: super: { foo = null; });
+#            [ poetry2nix.overrides.withDefaults
+#              (self: super: {
+#                pyte = super.faker.overridePythonAttrs(old: {
+#                  buildInputs = old.buildInputs ++ [
+#                    self.pytestrunner
+#                  ];
+#                });
+#              })
+#            ];
+          };
           default = self.packages.${system}.myapp;
         };
 
