@@ -28,7 +28,7 @@ in
 
         ] ++ (
           map (p: { category = "tools"; package = p; }) (with inputs.nixpkgs; [
-            bat jq yq ripgrep fd entr expect
+            bat jq yq ripgrep fd entr expect eza
             tcpdump dig nettools procps
             tmux tmuxinator tab-rs
             neovim
@@ -37,8 +37,11 @@ in
             (python311.withPackages (ps: with ps; [
               nats-py pyte
             ]))
+            python311Packages.ipython
             poetry
             dhall dhall-json jsonnet tanka
+            tree
+            kubectl kn k9s
           ])
         )
         ++ optionals nixpkgs.stdenv.isLinux [ ];
