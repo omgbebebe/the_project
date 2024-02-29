@@ -3,6 +3,9 @@
   cell
 }:
 let
+  inherit (inputs) nixpkgs std;
+  l = nixpkgs.lib // builtins;
+
   packages = {
     vector = inputs.nixpkgs.vector;
     tmuxinator = inputs.nixpkgs.tmuxinator;
@@ -28,7 +31,8 @@ in {
     };
   };
   tmuxinator-infra-minimal = inputs.std.lib.ops.mkOperable {
-    package = packages.tmuxinator.overrideAttrs (f: p: { name = p.name + "-infra-minimal";});
+    name = "tmux-minimal";
+    package = packages.tmuxinator;
     runtimeScript = ''
       ${packages.tmuxinator}/bin/tmuxinator start -p ./nix/local/configs/tmuxinator-infra-minimal.yml
     '';

@@ -21,7 +21,9 @@
   inputs.nixpkgs.url = "github:nixos/nixpkgs/23.11";
 
   inputs = {
-    std.url = "github:divnix/std";
+#    std.url = "github:divnix/std";
+#    std.url = "path:/home/pion/work/dev/metacoma/std";
+    std.url = "github:omgbebebe/std";
     std.inputs.nixpkgs.follows = "nixpkgs";
     std.inputs.devshell.url = "github:numtide/devshell";
     std.inputs.n2c.follows = "n2c";
